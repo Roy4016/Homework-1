@@ -17,7 +17,8 @@ NUM_CLASSES = 100
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 DATA_DIR = "data"
 OUTPUT_DIR = "result"
-
+if not os.path.exists(OUTPUT_DIR):
+    os.makedirs(OUTPUT_DIR)
 # Transform
 train_transform = transforms.Compose([
     transforms.RandomResizedCrop(224, scale=(0.8, 1.0)),
